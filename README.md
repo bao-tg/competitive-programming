@@ -1,4 +1,4 @@
 # competitive-programming
 
 
-This is a repository for me to practice coding everyday :D
+coding challenge: at least one CSES problem everyday.
