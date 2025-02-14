@@ -35,19 +35,18 @@ void readinp(){
 }
 
 void solve(){
-    int dp[n+1];
+    vector<int> dp(n + 1, INT_MAX);
+    dp[0] = 0;  // Base case: 0 requires 0 steps.
 
-    memset(dp, max_N, sizeof(dp));
-
-    for (int i = 1; i <= n; i++){
-        if (i < 10){
-            dp[i] = 1;
-        }
-        else{
-                dp[i] = min(dp[i], dp[i-(i/10)]) + 1;
+    for (int i = 1; i <= n; i++) {
+        string s = to_string(i);
+        for (char c : s) {
+            int digit = c - '0';
+            if (digit > 0) {
+                dp[i] = min(dp[i], dp[i - digit] + 1);
             }
         }
-
+    }
 
     cout << dp[n];
 }
